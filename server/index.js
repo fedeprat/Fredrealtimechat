@@ -15,6 +15,8 @@ const io = socketio(server, {
 });
 
 const PORT = process.env.PORT || 4000;
+app.use(router);
+app.use(cors())
 
 // keyword connection manages new connections
 io.on("connection", (socket) => {
@@ -62,6 +64,5 @@ io.on("connection", (socket) => {
   });
 });
 
-app.use(router);
 
 server.listen(PORT, () => console.log("Server running on port", PORT));
