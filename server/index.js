@@ -9,7 +9,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server, {
   cors: {
-    origin: "http://fredrealtimechat.vercel.app",
+    origin: "https://fredrealtimechat-9u2rslqjw-fedeprat.vercel.app",
     methods: ["GET", "POST"],
   },
 });
