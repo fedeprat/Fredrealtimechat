@@ -7,7 +7,12 @@ const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
 
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
+const io = socketio(server, {
+  cors: {
+    origin: "https://fredrealtimechat-9u2rslqjw-fedeprat.vercel.app",
+    methods: ["GET", "POST"],
+  },
+});
 app.use(cors())
 
 const PORT = process.env.PORT || 4000;

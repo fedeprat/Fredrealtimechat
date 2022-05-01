@@ -23,7 +23,7 @@ export default function Chat() {
 
     setName(name);
     setRoom(room);
-
+    console.log({name}, {room}, {socket})
     socket.emit("join", { name, room }, () => {});
 
     return () => {
