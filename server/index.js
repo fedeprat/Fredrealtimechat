@@ -7,16 +7,11 @@ const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
 
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server, {
-  cors: {
-    origin: "https://fredrealtimechat-9u2rslqjw-fedeprat.vercel.app",
-    methods: ["GET", "POST"],
-  },
-});
+const io = socketio(server);
+app.use(cors())
 
 const PORT = process.env.PORT || 4000;
 app.use(router);
-app.use(cors())
 
 // keyword connection manages new connections
 io.on("connection", (socket) => {
