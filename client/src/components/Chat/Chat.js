@@ -15,7 +15,7 @@ export default function Chat() {
   const [room, setRoom] = useState("");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
-  const ENDPOINT = "https://fredrealtimechat.herokuapp.com/";
+  const ENDPOINT = "https://fredrealtimechat.herokuapp.com";
 
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
