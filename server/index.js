@@ -9,7 +9,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server, {
   cors: {
-    origin: "https://fredrealtimechat-9u2rslqjw-fedeprat.vercel.app",
+    origin: "https://fredrealtimechat.vercel.app/",
     methods: ["GET", "POST"],
   },
 });
@@ -30,6 +30,7 @@ io.on("connection", (socket) => {
       user: "admin",
       text: `welcome to the room ${user.room}`,
     });
+    console.log("we have a new connection");
     socket.broadcast
       .to(user.room)
       .emit("message", { user: "admin", text: `${user.name} has joined.` });
